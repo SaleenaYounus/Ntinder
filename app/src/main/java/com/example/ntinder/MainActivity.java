@@ -37,17 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         checkUserSex();
-
-
         al = new ArrayList<>();
-        al.add("php");
-        al.add("c");
-        al.add("python");
-        al.add("java");
-        al.add("html");
-        al.add("c++");
-        al.add("css");
-        al.add("javascript");
+
 
         arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.hello, al );
       /*  al.add("javascript"); if you add this line to the program , we can only see the oppositesex username after swiping  the javascript card.
@@ -83,11 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                // Ask for more data here
-                al.add("XML ".concat(String.valueOf(i)));
-                arrayAdapter.notifyDataSetChanged();
-                Log.d("LIST", "notified");
-                i++;
             }
 
             @Override
@@ -167,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
               if(snapshot.exists()){
                   al.add(snapshot.child("name").getValue().toString());
                   arrayAdapter.notifyDataSetChanged();
+
               }
           }
           @Override
