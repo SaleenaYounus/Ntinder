@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,14 +22,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ArrayList<String> al;
-    private ArrayAdapter<String> arrayAdapter;
+    private cards  card_data[];
+    private arrayAdapter arrayAdapter;
     private int i;
 
     private FirebaseAuth mAuth;
+    private String currentUid;
+
+    ListView  listView;
+    List<cards> rowItems;
 
 
     @Override
@@ -37,10 +42,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
         checkUserSex();
-        al = new ArrayList<>();
-
-
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.item, R.id.hello, al );
+        rowItems = new ArrayList<cards>();
+        arrayAdapter = new arrayAdapter(this, R.layout.item,rowItems);
       /*  al.add("javascript"); if you add this line to the program , we can only see the oppositesex username after swiping  the javascript card.
         arrayAdapter.notifyDataSetChanged();*/
 
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 Log.d("LIST", "removed object!");
-                al.remove(0);
+                rowItems.remove(0);
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -149,9 +152,10 @@ public class MainActivity extends AppCompatActivity {
       DatabaseReference oppositeSexDb= FirebaseDatabase.getInstance().getReference().child("Users").child(oppositeUserSex);
       oppositeSexDb.addChildEventListener(new ChildEventListener() {
           @Override
-          public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+          public void onChildAdded( DataSnapshot snapshot,  String s) {
               if(snapshot.exists()){
-                  al.add(snapshot.child("name").getValue().toString());
+                  cards Item =new  cards(snapshot.getKey(), snapshot.child("name").getValue().toString());
+                  rowItems.add(Item);
                   arrayAdapter.notifyDataSetChanged();
 
               }
