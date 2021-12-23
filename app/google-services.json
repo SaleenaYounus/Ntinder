@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "472227831922",
+    "firebase_url": "https://mprjct-573c4-default-rtdb.firebaseio.com",
+    "project_id": "mprjct-573c4",
+    "storage_bucket": "mprjct-573c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472227831922:android:8d023eac22e41a2bc562eb",
+        "android_client_info": {
+          "package_name": "com.example.ntinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472227831922-nqt3j7d2ktm9kk3f5c4v60qg0iojp3qq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ntinder",
+            "certificate_hash": "6834bd22e36acf623cb697771132f488a6efe7c7"
+          }
+        },
+        {
+          "client_id": "472227831922-c3ph7r1hoiueqbpkti4ejb7duntvddeo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ8RHEhVcm26Cz2KBeavGz8XsCPp55MtU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472227831922-c3ph7r1hoiueqbpkti4ejb7duntvddeo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
