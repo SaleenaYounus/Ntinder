@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
         checkUserSex();
 
-
         rowItems = new ArrayList<cards>();
 
         arrayAdapter = new arrayAdapter(this,  R.layout.item, rowItems);
@@ -226,6 +225,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
         return;
+    }
 
+    public void goToSettings(View view) {
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        intent.putExtra("userSex",userSex);
+        startActivity(intent);
+        return;
     }
 }

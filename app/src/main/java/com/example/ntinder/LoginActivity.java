@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mEmail  = (EditText) findViewById(R.id.email);
         mPassword = (EditText) findViewById(R.id.password);
-        // this functioned called, when user click on the register button
+        // this functioned called, when user click on the login button
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

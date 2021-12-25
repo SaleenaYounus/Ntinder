@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ntinder">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -10,13 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ntinder">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".RegistrationActivity"
             android:exported="false" />
-        <activity android:name=".MainActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
         <activity
             android:name=".ChooseLoginRegistrationActivity"
             android:exported="true">
