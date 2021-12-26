@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
         arrayAdapter = new arrayAdapter(this,  R.layout.item, rowItems);
 
-
-
         SwipeFlingAdapterView flingContainer = findViewById(R.id.frame);
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -104,11 +102,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
         // Optionally add an OnItemClickListener
         flingContainer.setOnItemClickListener((itemPosition, dataObject) -> Toast.makeText(MainActivity.this, "Item Clicked!", Toast.LENGTH_SHORT).show());
-
     }
 
     private void isConnectionMatch(String userId) {
@@ -194,6 +189,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 if (snapshot.exists() && !snapshot.child("connections").child("nope").hasChild(currentUid) && !snapshot.child("connections").child("yeps").hasChild(currentUid)) {
+                    //check for default image
+                    String profileImageUrl = "default";
+                    if(!snapshot.child("profileImageUrl").getValue().equals("default")){
+                        profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
+
+                    }
                     cards Item = new cards(snapshot.getKey(), snapshot.child("name").getValue().toString(), snapshot.child("profileImageUrl").getValue().toString());
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
