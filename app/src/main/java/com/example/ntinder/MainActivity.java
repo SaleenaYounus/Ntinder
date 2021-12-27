@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ntinder.Cards.arrayAdapter;
+import com.example.ntinder.Cards.cards;
+import com.example.ntinder.Matches.MatchesActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -26,7 +29,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private cards cards_data[];
 
-    private arrayAdapter arrayAdapter;
+    private com.example.ntinder.Cards.arrayAdapter arrayAdapter;
     private int i;
 
     private FirebaseAuth mAuth;
@@ -171,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                         profileImageUrl = snapshot.child("profileImageUrl").getValue().toString();
 
                     }
-                    cards Item = new cards(snapshot.getKey(), snapshot.child("name").getValue().toString(), snapshot.child("profileImageUrl").getValue().toString());
+                    cards Item = new cards(snapshot.getKey(), snapshot.child("name").getValue().toString(), profileImageUrl);
                     rowItems.add(Item);
                     arrayAdapter.notifyDataSetChanged();
                 }
@@ -206,6 +209,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToSettings(View view) {
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(intent);
+        return;
+    }
+
+    public void goToMatches(View view) {
+        Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
         startActivity(intent);
         return;
     }

@@ -1,4 +1,4 @@
-package com.example.ntinder;
+package com.example.ntinder.Cards;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.ntinder.Cards.cards;
+import com.example.ntinder.R;
 
 import java.util.List;
 
-class arrayAdapter extends ArrayAdapter<cards> {
+public class arrayAdapter extends ArrayAdapter<cards> {
     Context context;
     public  arrayAdapter(Context context, int resourceId, List<cards> items){
         super(context, resourceId, items);
@@ -30,7 +32,7 @@ class arrayAdapter extends ArrayAdapter<cards> {
         //placing the image in the image view;
         switch (card_item.getProfileImageUrl()){
             case "default":
-                Glide.with(convertView.getContext()).load(R.mipmap.ic_launcher).into(image);
+                Glide.with(convertView.getContext()).load(R.drawable.ic_launcher_foreground).into(image);
                 break;
             default:
                 Glide.clear(image);

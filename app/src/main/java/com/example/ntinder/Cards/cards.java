@@ -1,4 +1,4 @@
-package com.example.ntinder;
+package com.example.ntinder.Cards;
 
 public class cards {
     private String userId; /*which is need to connect the DB*/
