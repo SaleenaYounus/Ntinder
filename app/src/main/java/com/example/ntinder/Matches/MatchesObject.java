@@ -2,12 +2,17 @@ package com.example.ntinder.Matches;
 
 public class MatchesObject {
     private String userId; /*which is need to connect the DB*/
+    private String name;
+    private String profileImageUrl;
 
-    public MatchesObject(String userId) {
-      this.userId= getUserId();
+//the below userId used for getting the opposite sex user id
+    public MatchesObject(String userId, String name, String profileImageUrl) {
+      this.userId= userId;
+      this.name  = name;
+      this.profileImageUrl = profileImageUrl;
  }
 
-    /*public void MatchesActivity(String userId){
+    /*public void idesActivity(String userId){
         /* The parameter useId is different from Private String userId*,this is parameter*/
         //this.userId = userId;/*The parameter userId is assigned to the DB connectivity userid*/
     //}
@@ -18,5 +23,19 @@ public class MatchesObject {
     }
     public void setUserId(String userId){
         this.userId =userId;
+    }
+
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getProfileImageUrl(){
+        return profileImageUrl;
+    }
+    public void setProfileImageUrl(String profileImageUrl){
+        this.profileImageUrl=profileImageUrl;
     }
 }
